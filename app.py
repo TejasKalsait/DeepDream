@@ -94,7 +94,7 @@ if uploaded_file is not None:
     # ALL CONFIG VARIABLES
     st.write("#####")
     st.subheader("Customization Options Available")
-    st.write("###### :red[Leave at default values if you are overwhelmed]. However I have provided the help button to explain what each option does.")
+    st.write("###### :red[Leave at default values if you are overwhelmed as they work  the best.] ")
     st.write("#")
     
     image_width = st.slider("Image Width (aspect ratio will be preserved)", 400, 800, 600, help = 'Higher resolution might take time to process')
@@ -118,19 +118,19 @@ if uploaded_file is not None:
     dataset_version = ['IMAGENET_V1', 'IMAGENET_V2']
     selected_version = st.selectbox("Which Dataset to use", dataset_version, index = 1, help = 'Adding support for more datasets in the future')
     
-    how_many_octaves = st.slider("Number of Octaves to use", 0, 10, 5, help = 'Higher the octaves, more variations in the size of the features generated')
+    how_many_octaves = st.slider("Number of Octaves to use", 2, 7, 5, help = 'Higher the octaves, more variations in the size of the features generated')
     config["pyramid_size"] = how_many_octaves
     
-    pyramid_ratio = st.slider("Octave Ratio", 1.0, 2.5, 1.5, step = 0.1, help = 'The factor by which the octave reduces in size')
+    pyramid_ratio = st.slider("Octave Ratio", 1.2, 1.8, 1.5, step = 0.1, help = 'The factor by which the octave reduces in size')
     config['pyramid_ratio'] = pyramid_ratio
     
-    smoothing = st.slider("Smoothing factor", 0.0, 1.0, 0.4, step = 0.1, help = 'Higher the value more blurred the original features are')
+    smoothing = st.slider("Smoothing factor", 0.2, 0.7, 0.4, step = 0.1, help = 'Higher the value more blurred the original features are')
     config["smoothing_coefficient"] = smoothing
     
     lr = st.slider("Learning Rate", 0.01, 0.10, 0.08, step = 0.01, help = "Higher the learning rate, faster it will generate but might not produce good results")
     config["lr"] = lr
     
-    iterations = st.slider("Number of Gradient Ascent Iterations", 0, 20, 5, help = "Higher the iterations more enhanced the features are")
+    iterations = st.slider("Number of Gradient Ascent Iterations", 1, 15, 5, help = "Higher the iterations more enhanced the features are")
     config["num_gradient_ascent_iterations"] = iterations
     
     if st.button("Click here to generate!"):
