@@ -46,4 +46,4 @@ opencv
 PIL (Python Imaging Library)
 You can find the complete list of dependencies along with their versions in the requirements.txt file.
 
-Happy dreaming! If you have any questions or feedback, feel free to reach out to me. Enjoy creating your own dreamy images with the DeepDream Project!
+### Happy dreaming! If you have any questions or feedback, feel free to reach out to me. Enjoy creating your own dreamy images with the DeepDream Project!
