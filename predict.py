@@ -377,7 +377,6 @@ def deep_dream_static(config, img = None):
         input_tensor = pytorch_input_adapter(img)
 
         for iteration in range(config['num_gradient_ascent_iterations']):
-            st.progress(iteration)
             h_shift, w_shift = np.random.randint(-config['spatial_shift_size'], config['spatial_shift_size'] + 1, 2)
             input_tensor = random_circular_spatial_shift(input_tensor, h_shift, w_shift)
 
