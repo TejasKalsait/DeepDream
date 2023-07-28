@@ -32,7 +32,7 @@ config = {
     "pyramid_ratio": 2.1,
     "num_gradient_ascent_iterations": 12,
     "lr": 0.05,
-    "img_width" : 600,
+    "img_width" : 300,
     "input" : "data/input/test.jpg",
     "layers_to_use" : ["layer3"],
     "should_display" : False,
@@ -77,7 +77,7 @@ if uploaded_file is not None:
 
     temp_img = Image.open(uploaded_file)
     input_image = np.array(temp_img)
-    config['img_width'] = input_image.shape[1]
+    # config['img_width'] = input_image.shape[1]
     target_shape = config["img_width"]
     if target_shape is not None:
         if isinstance(target_shape, int) and target_shape != -1:
