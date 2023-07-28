@@ -37,7 +37,7 @@ config = {
     "layers_to_use" : ["layer3"],
     "should_display" : False,
     "spatial_shift_size" : 30,
-    "smoothing_coefficient" : 0.8,
+    "smoothing_coefficient" : 0.4,
     "use_noise " : False}
 
 config['dump_dir'] = os.path.join(OUT_IMAGES_PATH, f'{config["model_name"]}_{config["pretrained_weights"]}')
