@@ -32,7 +32,7 @@ config = {
     "pyramid_ratio": 2.1,
     "num_gradient_ascent_iterations": 12,
     "lr": 0.05,
-    "img_width" : 1020,
+    "img_width" : 800,
     "input" : "data/input/test.jpg",
     "layers_to_use" : ["layer3"],
     "should_display" : False,
@@ -77,17 +77,7 @@ if uploaded_file is not None:
 
     temp_img = Image.open(uploaded_file)
     input_image = np.array(temp_img)
-    # config['img_width'] = input_image.shape[1]
-    target_shape = config["img_width"]
-    if target_shape is not None:
-        if isinstance(target_shape, int) and target_shape != -1:
-            curr_height, curr_width = input_image.shape[0], input_image.shape[1]
-            new_width = target_shape
-            new_height = int(curr_height * (new_width / curr_width))
-            #print(type(new_height))
-            input_image = cv.resize(input_image, (new_width, new_height), interpolation = cv.INTER_CUBIC)
-        else:
-            input_image = cv.resize(input_image, (target_shape[1], target_shape[0]), interpolation = cv.INTER_CUBIC)
+    config['img_width'] = input_image.shape[1]
             
     # Float 32 and in range [0, 1]
     input_image = input_image.astype(np.float32)
@@ -98,7 +88,7 @@ if uploaded_file is not None:
     st.image(input_image, channels = "RGB")
 
     st.write("Received Image succesfully")
-    st.write("Changed image width to", input_image.shape[1], "pixels")
+    st.write("Uploaded image width is", input_image.shape[1], "pixels")
     #st.write("Type of Input Image", type(input_image))
 
     # ALL CONFIG VARIABLES
@@ -107,8 +97,19 @@ if uploaded_file is not None:
     st.write("###### Leave at default values if you like")
     st.write("#")
     
-    image_width = st.slider("Image Width (aspect ratio will be preserved)", 510, 1020, 600, help = 'Higher resolution might take time to process')
+    image_width = st.slider("Image Width (aspect ratio will be preserved)", 400, 800, 600, help = 'Higher resolution might take time to process')
     config['img_width'] = image_width
+    target_shape = config["img_width"]
+    if target_shape is not None:
+        if isinstance(target_shape, int) and target_shape != -1:
+            curr_height, curr_width = input_image.shape[0], input_image.shape[1]
+            new_width = target_shape
+            new_height = int(curr_height * (new_width / curr_width))
+            #print(type(new_height))
+            input_image = cv.resize(input_image, (new_width, new_height), interpolation = cv.INTER_CUBIC)
+        else:
+            input_image = cv.resize(input_image, (target_shape[1], target_shape[0]), interpolation = cv.INTER_CUBIC)
+    # Got the new input image width
     
     layers_to_use = ['layer1', 'layer2', 'layer3', 'layer4', 'layer5']
     selected_layer = st.selectbox("Which layer of the RESNET50 network to use", layers_to_use, index = 2, help = 'Layer 3 gived the best results but feel free to use other layers')
