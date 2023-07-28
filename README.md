@@ -1,5 +1,9 @@
 # DeepDream Project - Streamlit Web Application
 
+## From - Tejas Kalsait (kalsaittejas10@gmail.com)
+## Feel free to connect on LinkedIn  at https://www.linkedin.com/in/tkalsait/
+
+
 Table of Contents
 Introduction
 Demo
