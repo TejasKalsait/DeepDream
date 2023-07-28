@@ -32,7 +32,7 @@ config = {
     "pyramid_ratio": 2.1,
     "num_gradient_ascent_iterations": 12,
     "lr": 0.05,
-    "img_width" : 300,
+    "img_width" : 600,
     "input" : "data/input/test.jpg",
     "layers_to_use" : ["layer3"],
     "should_display" : False,
