@@ -37,13 +37,13 @@ If you are satisfied with the outcome, you can download the dreamy image using t
 
 ## 5) The DeepDream Project has the following major dependencies:
 
-Python >3.9
-Streamlit
+Python >= 3.9
+streamlit
 torch
 torchvision
 numpy
 opencv
-PIL (Python Imaging Library)
+PIL
 You can find the complete list of dependencies along with their versions in the requirements.txt file.
 
 ### Happy dreaming! If you have any questions or feedback, feel free to reach out to me. Enjoy creating your own dreamy images with the DeepDream Project!
