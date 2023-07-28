@@ -136,7 +136,7 @@ if uploaded_file is not None:
             while True:
                 output_image = deep_dream_static(config, input_image)
                 count += 1
-                save_image(output_image * 255, "data/out-images/" + str(count) + ".jpg")
+                cv.imwrite("data/out-images/" + str(count) + ".jpg", output_image * 255)
                 break
 
 
