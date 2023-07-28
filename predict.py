@@ -22,8 +22,9 @@ import numpy as np
 import streamlit as st
 
 class WhichDatasets(enum.Enum):
-    IMAGENET = 0
+    IMAGENET_V1 = 0
     PLACES_365 = 1
+    IMAGENET_V2 = 2
 
 class WhichNetwork(enum.Enum):
     VGG16 = 0
@@ -168,12 +169,12 @@ class ResNet50(torch.nn.Module):
 
     def __init__(self, pretrained_weights, requires_grad=False, show_progress=False):
         super().__init__()
-        if pretrained_weights == WhichDatasets.IMAGENET.name:
+        if pretrained_weights == WhichDatasets.IMAGENET_V1.name:
+            #print("Using Version 1")
             resnet50 = models.resnet50(pretrained=True, progress=show_progress).eval()
-
-        elif pretrained_weights == WhichDatasets.PLACES_365.name:
-            resnet50 = models.resnet50(weights = 'places365', progress=show_progress).eval()
-
+        elif pretrained_weights == WhichDatasets.IMAGENET_V2.name:
+            #print("Using Version 2")
+            resnet50 = models.resnet50(weights = models.ResNet50_Weights.IMAGENET1K_V2, progress = show_progress).eval()
         else:
             print("Error loading REsnet")
             exit(0)
@@ -473,4 +474,8 @@ class CascadeGaussianSmoothing(nn.Module):
         grad3 = self.conv(input, weight=self.weight3, groups=num_in_channels)
 
         return (grad1 + grad2 + grad3) / 3
+
+def save_image(img, path):
+    
+    cv.imwrite(path, img)
     

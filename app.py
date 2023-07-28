@@ -27,7 +27,7 @@ from io import BytesIO
 # Parameters for the model
 config = {
     "model_name": 'RESNET50',
-    "pretrained_weights": 'IMAGENET',
+    "pretrained_weights": 'IMAGENET_V1',
     "pyramid_size": 3,
     "pyramid_ratio": 2.1,
     "num_gradient_ascent_iterations": 12,
@@ -111,8 +111,11 @@ if uploaded_file is not None:
     config['img_width'] = image_width
     
     layers_to_use = ['layer1', 'layer2', 'layer3', 'layer4', 'layer5']
-    selected_layer = st.selectbox("Which layer of the RESNET50 to use", layers_to_use, index = 2, help = 'Layer 3 gived the best results but feel free to use other layers')
+    selected_layer = st.selectbox("Which layer of the RESNET50 network to use", layers_to_use, index = 2, help = 'Layer 3 gived the best results but feel free to use other layers')
     config['layers_to_use'] = [selected_layer]
+    
+    dataset_version = ['IMAGENET_V1', 'IMAGENET_V2']
+    selected_version = st.selectbox("Which Dataset to use", dataset_version, index = 1, help = 'Adding support for more datasets in the future')
     
     how_many_octaves = st.slider("Number of Octaves to use", 0, 10, 5, help = 'Higher the octaves, more variations in the size of the features generated')
     config["pyramid_size"] = how_many_octaves
@@ -123,15 +126,17 @@ if uploaded_file is not None:
     lr = st.slider("Learning Rate", 0.01, 0.10, 0.08, step = 0.01, help = "Higher the learning rate, faster it will generate but might not produce good results")
     config["lr"] = lr
     
-    iteratoins = st.slider("Number of Gradient Ascent Iterations", 0, 20, 15, help = "Higher the iterations more enhanced the features are")
-    config["num_gradient_ascent_iterations"] = iteratoins
+    iterations = st.slider("Number of Gradient Ascent Iterations", 0, 20, 5, help = "Higher the iterations more enhanced the features are")
+    config["num_gradient_ascent_iterations"] = iterations
     
     if st.button("Click here to generate!"):
         st.write("Generating")
         with st.spinner("AI is Dreaming"):
-            
+            count = 0
             while True:
                 output_image = deep_dream_static(config, input_image)
+                count += 1
+                save_image(output_image * 255, "data/out-images/" + str(count) + ".jpg")
                 break
 
 
@@ -144,10 +149,18 @@ if uploaded_file is not None:
         # byte_im = buf.getvalue()
         
         
-        # # Download
-        # st.download_button(
-        #     label="Download Generated image",
-        #     data = byte_im,
-        #     file_name = "DeepDream.jpg",
-        #     mime="image/jpeg",
-        # )
+        # Download
+        st.download_button(
+            label="Download Generated image for free",
+            data = open("data/out-images/" + str(count) + ".jpg", "rb").read(),
+            file_name = "DeepDream.jpg",
+            mime="image/jpg",
+        )
+        
+        st.write("##### Feature coming in the future -\n1) Generating video from an input image.\n2) Support for more datasets and networks.")
+        
+        st.write("#")
+        st.write("#")
+        
+        st.write("### From Tejas Kalsait (kalsaittejas10@gmail.com)")
+        st.write("##### Connect on LinkedIn: https://www.linkedin.com/in/tkalsait/")
