@@ -32,7 +32,7 @@ config = {
     "pyramid_ratio": 2.1,
     "num_gradient_ascent_iterations": 12,
     "lr": 0.05,
-    "img_width" : 600,
+    "img_width" : 1020,
     "input" : "data/input/test.jpg",
     "layers_to_use" : ["layer3"],
     "should_display" : False,
@@ -98,7 +98,7 @@ if uploaded_file is not None:
     st.image(input_image, channels = "RGB")
 
     st.write("Received Image succesfully")
-    st.write("Original width is", input_image.shape[1], "pixels")
+    st.write("Changed image width to", input_image.shape[1], "pixels")
     #st.write("Type of Input Image", type(input_image))
 
     # ALL CONFIG VARIABLES
