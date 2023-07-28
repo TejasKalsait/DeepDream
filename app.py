@@ -97,7 +97,7 @@ if uploaded_file is not None:
     st.write("###### :red[Leave at default values if you are overwhelmed as they work  the best.] ")
     st.write("#")
     
-    image_width = st.slider("Image Width (aspect ratio will be preserved)", 400, 800, 600, help = 'Higher resolution might take time to process')
+    image_width = st.slider("Image Width (aspect ratio will be preserved)", 400, 700, 600, help = 'Higher resolution might take time to process')
     config['img_width'] = image_width
     target_shape = config["img_width"]
     if target_shape is not None:
