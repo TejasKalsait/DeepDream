@@ -140,7 +140,7 @@ if uploaded_file is not None:
             while True:
                 output_image = deep_dream_static(config, input_image)
                 count += 1
-                cv.imwrite("data/out-images/" + str(count) + ".jpg", output_image * 255)
+                cv.imwrite("data/out-images/" + str(count) + ".jpg", output_image[:, : , ::-1] * 255)
                 break
 
 
@@ -168,3 +168,8 @@ if uploaded_file is not None:
         
         st.write("### From Tejas Kalsait (kalsaittejas10@gmail.com)")
         st.write("##### Connect on LinkedIn: https://www.linkedin.com/in/tkalsait/")
+        
+
+# if uploaded_file is None:
+#     del input_image
+#     del output_image
