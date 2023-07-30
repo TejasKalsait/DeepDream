@@ -3,6 +3,9 @@
 ## From - Tejas Kalsait (kalsaittejas10@gmail.com)
 ## Feel free to connect on LinkedIn  at https://www.linkedin.com/in/tkalsait/
 
+## Examples of Generated Images
+![alt text](https://github.com/TejasKalsait/DeepDream/blob/main/data/out-images/1.jpg?raw=true)
+
 
 ## Table of Contents
 1) Introduction
