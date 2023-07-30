@@ -13,11 +13,11 @@ https://dreamer-ai.streamlit.app/
 
 
 ## Table of Contents
-1) [Introduction](#introduction)
-2) Demo
-3) Features
-4) How to Use
-5) Dependencies
+- [Introduction](#introduction)
+- [Demo](#demo)
+- [Features](features)
+- [How to Use](#how-to-use)
+- [Dependencies](#dependencies)
 
 
 ## 1) Introduction
