@@ -4,7 +4,7 @@
 ## Feel free to connect on LinkedIn  at https://www.linkedin.com/in/tkalsait/
 
 ## Examples of Generated Images
-![alt text](https://github.com/TejasKalsait/DeepDream/blob/main/data/out-images/1.jpg?raw=true)
+![alt text](https://github.com/TejasKalsait/DeepDream/blob/main/data/samples/catsample.jpg?raw=true)
 
 
 ## Table of Contents
