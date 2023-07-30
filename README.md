@@ -5,6 +5,7 @@
 
 ## Examples of Generated Images
 ![alt text](https://github.com/TejasKalsait/DeepDream/blob/main/data/samples/catsample.jpg?raw=true)
+![alt text](https://github.com/TejasKalsait/DeepDream/blob/main/data/samples/robotsample.jpg?raw=true)
 
 
 ## Table of Contents
