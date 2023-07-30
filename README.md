@@ -3,13 +3,17 @@
 ## From - Tejas Kalsait (kalsaittejas10@gmail.com)
 ## Feel free to connect on LinkedIn  at https://www.linkedin.com/in/tkalsait/
 
+## Check out the live demo of the DeepDream Project here: DeepDream Web App
+
+https://dreamer-ai.streamlit.app/
+
 ## Examples of Generated Images
-![alt text](https://github.com/TejasKalsait/DeepDream/blob/main/data/samples/catsample.jpg?raw=true)
 ![alt text](https://github.com/TejasKalsait/DeepDream/blob/main/data/samples/robotsample.jpg?raw=true)
+![alt text](https://github.com/TejasKalsait/DeepDream/blob/main/data/samples/catsample.jpg?raw=true)
 
 
 ## Table of Contents
-1) Introduction
+1) [Introduction](#introduction)
 2) Demo
 3) Features
 4) How to Use
